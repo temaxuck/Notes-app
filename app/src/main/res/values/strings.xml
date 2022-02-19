@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">App123</string>
+    <string name="edit_icon">Edit</string>
+    <string name="search_icon">Edit</string>
+    <string name="more_icon">Edit</string>
+    <string name="brandName_text">Notes</string>
+    <string name="dailyNotes_text">Daily Notes</string>
+    <string name="dailyNotesAbout_text">Take notes, reminders, set targets, collect resources and secure privacy</string>
+    <string name="edit_text">Edit</string>
+    <string name="all">All</string>
+    <string name="folder">Folder</string>
+</resources>
