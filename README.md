@@ -1,2 +1,2 @@
 # Notes-app
- Creating notes app in learning purposes
+ Creating notes app for learning purpises
