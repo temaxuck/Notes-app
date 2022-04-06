@@ -3,6 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/montserrat</item>
         <item>@font/montserrat_bold</item>
+<!--<<<<<<< HEAD-->
         <item>@font/juraregular</item>
+<!--=======-->
+<!--&gt;>>>>>> 706b965e2764b43a3f70dd09d131a5429b94c807-->
     </array>
 </resources>
