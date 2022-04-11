@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App123</string>
+    <string name="app_name">Not Only Notes</string>
     <string name="edit_icon">Edit</string>
     <string name="search_icon">Edit</string>
     <string name="more_icon">Edit</string>
@@ -9,4 +9,8 @@
     <string name="edit_text">Edit</string>
     <string name="all">All</string>
     <string name="folder">Folder</string>
+<!--<<<<<<< HEAD-->
+    <string name="not_only_notes">Not Only Notes</string>
+<!--=======-->
+<!--&gt;>>>>>> 706b965e2764b43a3f70dd09d131a5429b94c807-->
 </resources>
