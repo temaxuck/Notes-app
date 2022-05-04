@@ -7,7 +7,7 @@ class NoteForm(ModelForm):
         fields = ['title', 'content', 'user']
 
         widgets = {
-            "title": TextInput(attrs={
+            "user": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Имя пользователя'
             }),
@@ -20,3 +20,4 @@ class NoteForm(ModelForm):
                 'placeholder': 'Название заметки'
             }),
         }
+        

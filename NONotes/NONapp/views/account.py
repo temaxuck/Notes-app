@@ -4,7 +4,11 @@ from ..models import Note
 from ..forms import NoteForm
 
 def login(request):
-    return render(request, 'non/login.html')
+    context = {
+        'title': 'Log In'
+    }
+    
+    return render(request, 'non/login.html', )
 
 def signup(request):
     return render(request, 'non/signup.html')

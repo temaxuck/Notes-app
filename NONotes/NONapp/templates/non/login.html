@@ -1,17 +1,1 @@
-{% extends 'non/base.html' %} {% block head %}
-{% load static %}
-<link rel="stylesheet" href="{% static 'NONapp/stylesheets/forms.css' %}">
-<title>Log In</title>
-{% endblock %} {% block header %}
-{% endblock %} {% block body %}
-<main>
-    <form action="" method="post" class="form login-form">
-
-    </form>
-    <div class="already">
-        <small class="">
-            Don't have an account? <a href="{% url 'signup' %}" class="signlink">Sign up</a> 
-        </small>
-    </div>
-</main>
-{% endblock %}
+{% extends 'non/base.html' %}

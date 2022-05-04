@@ -8,35 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'non/stylesheets/base.css' %}">
+
+    <link rel="stylesheet" href="{% static 'non/stylesheets/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'non/stylesheets/global.css' %}">
+    <link rel="stylesheet" href="{% static 'non/stylesheets/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'non/stylesheets/overall.css' %}">
+    <link rel="stylesheet" href="{% static 'non/stylesheets/variables.css' %}">
     {% block head %} {% endblock %}
 </head>
 
 <body onscroll="gotop()">
-    <header>
-        <span class="header_name">
-            <a href="{% url 'home' %}" class=""> Go home </a>
-        </span>
-        {% block header %} {% endblock %}
-        <div class="btns">
-            <a href="{% url 'create' %}" class="link login">Create Note</a>
-            <a href="{% url 'login' %}" class="link login">Log in</a>
-            <a href="{% url 'signup' %}" class="link signup">Sign up</a>
-        </div>
-    </header>
-    <div class="site-wrapper">
-        {% block body %} {% endblock %}
-    </div>
-    
-    <a href="#" class="go-top">
-        <span class="material-icons-outlined go-arrow top-arrow">expand_less</span>
-    </a>
-    
-    <footer>
-        <div class="credits">
-            Fullstack temax co.
-        </div>
-    </footer>
+    {% block body %} {% endblock %}
 </body>
 
 {% block afterscripts %}{% endblock %}
