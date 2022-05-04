@@ -33,3 +33,7 @@
 .link:hover {
    --d: 100%;
 }
+
+.none {
+   display: none;
+}
