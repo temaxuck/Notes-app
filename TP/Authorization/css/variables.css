@@ -1,0 +1,12 @@
+:root {
+   --base-scale: 100vw / 94.5;
+   --h1-size: clamp(1rem, calc(var(--base-scale) * 4.75), 4.75rem);
+   --h2-size: clamp(1rem, calc(var(--base-scale) * 4), 4rem);
+   --p-size: clamp(1rem, calc(var(--base-scale) * 1.5), 1.5rem);
+   --link-size: clamp(1rem, calc(var(--base-scale) * 2), 2rem);
+   --main-color: #81B29A;
+   --active-color: #498266;
+   --attention-color: #E07A5F;
+   --text-color: #003D5B;
+   --white-color: #fff;
+}

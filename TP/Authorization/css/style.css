@@ -1,0 +1,89 @@
+@import url("normalize.css");
+@import url("global.css");
+@import url("variables.css");
+@import url("overall.css");
+
+.authorization {
+   height: 100vh;
+}
+
+.authorization__inner {
+   padding: 2.375rem 0;
+}
+
+.authorization__logo {
+   margin-bottom: 2rem;
+}
+
+.authorization__block {
+   display: flex;
+   justify-content: space-between;
+   flex-direction: row;
+}
+
+.authorization__content {
+   width: 40%;
+}
+
+.authorization__header {
+   font-size: var(--h1-size);
+   color: var(--main-color, #000);
+   margin-bottom: 1rem;
+}
+
+.authorization__instruction {
+   font-weight: 500;
+   margin-bottom: 2rem;
+}
+
+.authorization__instruction a {
+   color: var(--attention-color, #fff);
+}
+
+.regiter__form-input-group {
+   margin-bottom: 2rem;
+}
+
+.authorization__form-name {
+   display: block;
+   font-weight: 500;
+   margin-bottom: 0.5rem;
+}
+
+.authorization__form-input {
+   width: 100%;
+   padding: 1.5rem 1.75rem;
+   border: 2px solid var(--text-color, #fff);
+   border-radius: 10px;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   transition: all 1s ease-in-out;
+}
+
+.authorization__btn {
+   background-color: var(--main-color, #000);
+   color: var(--white-color, #fff);
+   border-radius: 10px;
+   padding: 24px 0;
+   width: 100%;
+}
+
+.authorization__decorative {
+   width: 50%;
+   display: grid;
+   grid-template-rows: 1fr auto;
+}
+
+.authorization__img {
+   display: block;
+}
+
+
+
+.authorization__form-input:required:valid {
+   transition: all 0.3s ease-in-out;
+   border-color: var(--main-color, green);
+}
+/* 
+.authorization__form-input:hover:invalid {
+   border: 2px solid var(--attention-color, red);
+} */

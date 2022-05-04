@@ -1,0 +1,35 @@
+.container {
+   max-width: 1592px;
+   margin: 0 auto;
+   padding: 0 95px;
+}
+
+.btn {
+   border: none;
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+   transition: all 0.3s ease-in-out;
+   background-color: var(--active-color);
+}
+
+.uppercase {
+   text-transform: uppercase;
+}
+
+.full-height {
+   height: 100vh;
+}
+
+.link {
+   background:
+   linear-gradient(currentColor 0 0) bottom 0 left  0 / var(--d, 0) 2px no-repeat,
+   linear-gradient(currentColor 0 0) bottom 3px right 0 / var(--d, 0) 2px no-repeat;
+   transition:0.5s;
+}
+
+.link:hover {
+   --d: 100%;
+}

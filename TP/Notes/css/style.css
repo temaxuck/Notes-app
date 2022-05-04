@@ -1,0 +1,62 @@
+@import url("normalize.css");
+@import url("global.css");
+@import url("variables.css");
+@import url("overall.css");
+
+.content-wrapper {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   height: 100vh;
+}
+
+.aside {
+   background-color: var(--main-color, green);
+   height: 100%;
+   width: 25%;
+}
+
+.notes-container {
+   max-width: 1592px;
+   margin: 0 auto;
+   padding: 40px;
+}
+
+.aside__inner {
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+}
+
+.aside__list {
+   display: flex;
+   flex-direction: column;
+}
+
+.aside__el {
+   color: var(--white-color, #fff);
+}
+
+.aside__el:not(:last-child) {
+   margin-bottom: 1.5rem;
+}
+
+.aside__account-block {
+   color: var(--white-color, #fff);
+}
+
+.aside__avatar {
+   float: left;
+   margin-right: 1rem;
+}
+
+.aside__name {
+   font-size: 1.25rem;
+   font-weight: 600;
+}
+
+.aside__descr {
+   font-size: 1rem;
+   font-weight: 500;
+   font-style: oblique;
+}
