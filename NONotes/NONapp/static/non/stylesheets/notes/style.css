@@ -14,6 +14,8 @@
 
 .aside__logo {
    font-size: var(--link-size, 2rem);
+   padding: 40px 40px 0 40px;
+   margin-bottom: 40px; /* Переделать */
 }
 
 .notes-container {
@@ -25,13 +27,9 @@
 
 .aside__inner {
    display: flex;
-   justify-content: space-between;
+   justify-content: flex-start;
    flex-direction: column;
    height: 100%;
-}
-
-.aside__logo {
-   margin-bottom: var(--big-header-size);
 }
 
 .aside__list {
@@ -44,10 +42,11 @@
    font-size: var(--p-size, 2rem);
    font-weight: 600;
    display: block;
+   padding: 10px 0 10px 40px;
 }
 
 .aside__el:not(:last-child) {
-   margin-bottom: 1.5rem; /* Переделать */
+   margin-bottom: 1rem; 
 }
 
 .aside__el::before {
@@ -68,7 +67,8 @@
 }
 
 .aside__link-icon {
-   width: 2rem;
+   /* font-size: var(--p-size, 2rem); */
+   width: calc(var(--p-size, 2rem) + 0.5rem); /* Переделать*/
    margin-right: 1rem;
 }
 
@@ -83,10 +83,10 @@
    background-color: #A2C8B5;
    border-radius: 10px;
    padding: 1rem;
-   margin-top: auto;
    display: grid;
    grid-template-columns: auto 1fr;
    gap: 1rem;
+   margin: auto 40px 40px 40px;
 }
 
 .aside__name {
