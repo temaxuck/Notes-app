@@ -1,0 +1,6 @@
+.site-wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}

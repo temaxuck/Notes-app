@@ -1,0 +1,51 @@
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .forms import RegisterForm
+
+def register(request):
+    if request.user.is_authenticated:
+        messages.warning(request, 'You have been already logged in. Log out if you want to register a new user.')
+        return redirect('profile')
+
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'An account for {username} has been created!')
+            return redirect('login')
+    else:
+        form = RegisterForm()
+    
+    context = {
+        'form': form,
+        'title': 'Register'
+    }
+
+    return render(request, 'users/register.html', context)
+
+def login(request):
+    if request.user.is_authenticated:
+        messages.warning(request, 'You have been already logged in. Log out if you want to change user.')
+        return redirect('profile')
+    
+    defaults = {
+        'template_name': 'users/login.html',
+        'authentication_form': AuthenticationForm,
+        'extra_context': {
+            'title': 'Log in',
+        },
+    }
+    return LoginView.as_view(**defaults)(request)
+
+@login_required
+def profile(request):
+    context = {
+        
+    }
+    return render(request, 'users/profile.html', context)
+

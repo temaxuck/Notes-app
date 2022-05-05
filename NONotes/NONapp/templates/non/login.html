@@ -1,0 +1,38 @@
+{% extends 'non/base.html' %}
+{% block head %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'non/stylesheets/login/style.css' %}">
+{% endblock %}
+{% block body %}
+<main class="main">
+   <section class="authorization full-height">
+      <div class="container">
+         <div class="authorization__inner">
+            <div class="authorization__logo logo">
+               NotOnlyNotes
+            </div>
+            <div class="authorization__block">
+               <div class="authorization__content">
+                  <h1 class="authorization__header">Авторизация</h1>
+                  <div class="authorization__instruction">Еще не с нами? <a class="link" href="{% url 'signuppage' %}">Зарегистрироваться!</a></div>
+                  <form class="authorization__form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+                     <div class="regiter__form-input-group">
+                        <label class="authorization__form-name" for="email">E-mail</label>
+                        <input class="authorization__form-input" type="email" name="email" id="email" placeholder="Вводить здесь..." required>
+                     </div>
+                     <div class="regiter__form-input-group">
+                        <label class="authorization__form-name" for="password">Пароль</label>
+                        <input class="authorization__form-input" type="password" name="password" id="password" placeholder="Вводить здесь..." required>
+                     </div>
+                     <input class="authorization__btn btn" type="submit" value="Создать аккаунт" onClick='location.href="{% url "notes" %}"'>
+                  </form>
+               </div>
+               <div class="authorization__decorative">
+                  <img class="authorization__img" src="{% static 'non/img/login/authorization-img.png' %}" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</main>
+{% endblock %}

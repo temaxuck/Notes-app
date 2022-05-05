@@ -1,0 +1,24 @@
+:root {
+   --base-scale: 100vw / 94.5;
+
+   --big-header-size: clamp(2rem, calc(var(--base-scale) * 4.75), 4.75rem);
+   --small-header-size: clamp(1.5rem, calc(var(--base-scale) * 3), 3rem);
+   --p-size: clamp(0.8rem, calc(var(--base-scale) * 1.5), 1.5rem);
+   --p-small-size: clamp(0.7rem, calc(var(--base-scale) * 1.25), 1.25rem);
+   --link-size: clamp(1rem, calc(var(--base-scale) * 2.25), 2.25rem);
+
+   --btn-padding-lr: clamp(0.7rem, calc(var(--base-scale) * 2.5), 2.5rem);
+   --btn-padding-tb: clamp(0.7rem, calc(var(--base-scale) * 1.25), 1.25rem);
+
+   --input-padding-lr: clamp(0.7rem, calc(var(--base-scale) * 1.75), 1.75rem);
+   --input-padding-tb: clamp(0.7rem, calc(var(--base-scale) * 1.5), 1.5rem);
+
+   --margin-bottom: clamp(0.5rem, calc(var(--base-scale) * 3), 3rem);
+   --margin-small-bottom: clamp(0.5rem, calc(var(--base-scale) * 3), 2rem);
+
+   --main-color: #81B29A;
+   --active-color: #498266;
+   --attention-color: #E07A5F;
+   --text-color: #003D5B;
+   --white-color: #fff;
+}

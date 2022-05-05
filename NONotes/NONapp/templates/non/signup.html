@@ -1,0 +1,44 @@
+{% extends 'non/base.html' %}
+{% block head %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'non/stylesheets/signup/style.css' %}">
+{% endblock %}
+
+{% block body %}
+   <main class="main">
+      <section class="register">
+         <div class="container">
+            <div class="register__inner">
+               <div class="register__logo logo">
+                  NotOnlyNotes
+               </div>
+               <div class="register__block">
+                  <div class="register__content">
+                     <h1 class="register__header">Регистрация</h1>
+                     <div class="register__instruction">Уже есть аккаунт? <a class="link" href="{% url 'loginpage' %}">Войдите!</a></div>
+                     <form class="register__form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+                        <div class="regiter__form-input-group">
+                           <label class="register__form-name uppercase" for="fio">Фио</label>
+                           <input class="register__form-input" type="text" name="fio" id="fio" placeholder="Вводить здесь..." required>
+                        </div>
+                        <div class="regiter__form-input-group">
+                           <label class="register__form-name" for="email">E-mail</label>
+                           <input class="register__form-input" type="email" name="email" id="email" placeholder="Вводить здесь..." required>
+                        </div>
+                        <div class="regiter__form-input-group">
+                           <label class="register__form-name" for="password">Пароль</label>
+                           <input class="register__form-input" type="password" name="password" id="password" placeholder="Вводить здесь..." required>
+                        </div>
+                        <input class="register__btn btn" type="submit" value="Создать аккаунт" onClick='location.href="{% url "notes" %}"'>
+                     </form>
+                  </div>
+                  <div class="register__decorative">
+                     <img class="register__img" src="{% static 'non/img/signup/register-img.png' %}" alt="">
+                     <p class="register__politics">Нажимая «Создать аккаунт», вы подтверждаете, что ознакомились с положениями, указанными в статьях <span>Пользовательское Соглашение</span> и <span>Политика Конфиденциальности</span></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </main>
+{% endblock %}

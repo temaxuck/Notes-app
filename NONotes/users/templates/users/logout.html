@@ -1,0 +1,13 @@
+{% extends 'non/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %} 
+<div class="site-wrapper">
+    <h2>Thanks, for visiting our website. Good bye!</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Log In again</a>
+        </small>
+    </div>
+
+</div>
+{% endblock %}

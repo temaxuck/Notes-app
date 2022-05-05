@@ -1,0 +1,254 @@
+.content-wrapper {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   height: 100vh;
+   overflow: hidden;
+}
+
+.aside {
+   background-color: var(--main-color, green);
+   height: 100%;
+   width: 30%;
+}
+
+.aside__logo {
+   font-size: var(--link-size, 2rem);
+}
+
+.notes-container {
+   max-width: 1592px;
+   margin: 0 auto;
+   padding: 40px;
+   height: 100%;
+}
+
+.aside__inner {
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+   height: 100%;
+}
+
+.aside__logo {
+   margin-bottom: var(--big-header-size);
+}
+
+.aside__list {
+   display: flex;
+   flex-direction: column;
+}
+
+.aside__el {
+   color: var(--white-color, #fff);
+   font-size: var(--p-size, 2rem);
+   font-weight: 600;
+   display: block;
+}
+
+.aside__el:not(:last-child) {
+   margin-bottom: 1.5rem; /* Переделать */
+}
+
+.aside__el::before {
+   margin-right: 1.5rem; /* Переделать */
+}
+
+.aside__el--anim {
+   background:
+   linear-gradient(#A2C8B5 0 0) 
+   right / var(--d, 0%) 100% no-repeat;
+   transition: 0.5s;
+}
+
+.aside__el--anim:hover {
+   --d: 100%;
+   border-radius: 100px 0 0 100px;
+   color: #fff;
+}
+
+.aside__link-icon {
+   width: 2rem;
+   margin-right: 1rem;
+}
+
+.aside__link {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.aside__account-block {
+   color: var(--white-color, #fff);
+   background-color: #A2C8B5;
+   border-radius: 10px;
+   padding: 1rem;
+   margin-top: auto;
+   display: grid;
+   grid-template-columns: auto 1fr;
+   gap: 1rem;
+}
+
+.aside__name {
+   font-size: var(--p-small-size, 1.25rem);
+   font-weight: 600;
+   margin-bottom: 0.625rem;
+}
+
+.aside__descr {
+   font-size: 0.9rem;
+   font-weight: 500;
+   font-style: oblique;
+}
+
+.hero {
+   position: relative;
+}
+
+.hero__top {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-bottom: 0.5rem;
+}
+
+.hero__header {
+   font-size: var(--small-header-size, 3rem);
+}
+
+.hero__func-list {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.hero__func-el:not(:last-child) {
+   margin-right: 1rem;
+}
+
+.hero__descr {
+   display: inline-block;
+   font-size: var(--p-size, 1.5rem);
+   font-weight: 500;
+   margin-bottom: var(--margin-small-bottom, 2rem);
+}
+
+.hero__notes-list {
+   height: 70vh;
+   overflow-x: scroll;
+   padding: 1rem; /*Убрать попозже*/
+}
+
+.hero__notes-el {
+   border-radius: 20px;
+   padding: 1rem 1.5rem;
+   border: 3px solid var(--main-color);
+   background-color: var(--white-color);
+}
+
+.hero__notes-el:not(:last-child) {
+   margin-bottom: 1rem;
+}
+
+.hero__notes-header {
+   font-size: var(--link-size, 2.25rem);
+   margin-bottom: var(--margin-small-bottom, 1.5rem);
+}
+
+.hero__notes-descr {
+   font-weight: 500;
+   font-size: var(--p-size, 1.5rem);
+   margin-bottom: 1rem;
+}
+
+.hero__notes-date {
+   display: block;
+   font-size: var(--p-small-size, 1.25rem);
+   font-weight: 500;
+   color: #8A8EAB;
+   text-align: right;
+}
+
+
+
+.hero__notes-el--test {
+   position: absolute;
+   display: block;
+   width: 97%;
+   height: 90%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.hero__util-list {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-bottom: var(--margin-small-bottom, 2rem);
+}
+
+.hero__util-el:not(:last-child) {
+   margin-right: 1rem;
+}
+
+.hero__util-el {
+   position: relative;
+}
+
+.hero__notes-el {
+   transition: all 0.3s ease-in-out;
+}
+
+.hero__notes-el:hover {
+   transition: all 0.3s ease-in-out;
+   box-shadow: 0 0 10px 4px #c4c4c4;
+}
+
+.hero__util-el--hover {
+   transition: all 0.3s ease-in-out;
+}
+
+.hero__util-el--hover:hover {
+   transform: scale(1.2);
+   transition: all 0.3s ease-in-out;
+}
+
+.hero__util-el--close {
+   margin-left: auto;
+}
+
+.hero__util-select {
+   display: block;
+   appearance: none;
+   font-weight: 500;
+   font-size: 1rem;
+   padding: 0.4rem;
+   border: 2px solid var(--main-color);
+   border-radius: 5px;
+   cursor: pointer;
+   display: grid;
+   background-color: transparent;
+   outline: none;
+}
+
+.hero__util-select--size {
+   min-width: 4rem;
+}
+
+.hero__util-el--arrow::after {
+   position: absolute;
+   display: block;
+   right: 0.4rem;
+   top: 50%;
+   transform: translateY(-50%);
+   content: "";
+   width: 0.8em;
+   height: 0.5em;
+   background-color: var(--main-color);
+   clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.hero__util {
+   display: none;
+}
