@@ -1,6 +1,5 @@
 from . import *
 
 def home(request):
-    context = {
-    }
+    context = {}
     return render(request, 'non/home.html')

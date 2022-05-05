@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import general, account
-from .models import Note
+
 from .forms import NoteForm
+from .models import Note
+from .views import account, general
 
 urlpatterns = [
     path('', general.home, name='home'),
