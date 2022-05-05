@@ -12,16 +12,16 @@
                <img class="logo__img" src="{% static 'non/img/logo.svg' %}" alt="Logo Not Only Notes">
             </div>
             <ul class="header__list">
-               <li class="header__el"><a class="header__el-link link" href="#">Store</a></li>
-               <li class="header__el"><a class="header__el-link link" href="#">Notes</a></li>
+               <li class="header__el"><a class="header__el-link link" href="#">Магазин</a></li>
+               <li class="header__el"><a class="header__el-link link" href="#">Заметки</a></li>
             </ul>
             <div class="btns-container">
                {% if user.is_authenticated %}
                   <a class="header__link" href="{% url 'profile' %}">{{ user.username }}</a>
-                  <a class="header__link" href="{% url 'logout' %}">Log Out</a>
+                  <a class="header__link" href="{% url 'logout' %}">Выйти</a>
                {% else %}
-                  <a class="header__link" href="{% url 'login' %}">Log In</a>
-                  <a class="header__link" href="{% url 'register' %}">Register</a>
+                  <a class="header__link" href="{% url 'login' %}">Войти</a>
+                  <a class="header__link" href="{% url 'register' %}">Зарегистрироваться</a>
                {% endif %}
             </div>
          </div>
@@ -31,10 +31,10 @@
       <div class="container">
          <div class="header__bottom-inner">
             <h1 class="header__header uppercase">
-               Create, <span>Edit,</span> <span>Save.</span>
+               Создавай, <br><span>Редактируй,</span> <br><span>Сохраняй.</span>
             </h1>
-            <p class="header__descr"> Get on the new level of productivity and creativity by creating, editing and saving notes.</p>
-            <a class="header__btn btn" href="#functionality" aria-label="Scroll down">Learn more</a>
+            <p class="header__descr"> Выйди на новый уровень продуктивности и креативности, создавая, редактируя и сохраняя заметки.</p>
+            <a class="header__btn btn" href="#functionality" aria-label="Scroll down">Узнать больше</a>
          </div>
       </div>
    </div>
@@ -43,19 +43,19 @@
    <section class="functional full-height">
       <div class="container">
          <div class="functional__inner">
-            <h2 class="functional__header" id="functionality">Functionality</h2>
-            <p class="functional__descr">We have designed an innovative and comfortable functionality to make your notes activity more cosy than ever before.</p>
+            <h2 class="functional__header" id="functionality">Функционал</h2>
+            <p class="functional__descr"> Мы разработали удобный и иновационый функционал, чтобы сделать вашу работу с заметками удобнее, чем прежде.</p>
             <ul class="functional__list">
-               <li class="functional__el"><a class="functional__link link" href="#">Text</a></li>
-               <li class="functional__el"><a class="functional__link link" href="#">Check-list</a></li>
-               <li class="functional__el"><a class="functional__link link" href="#">Audio</a></li>
-              <li class="functional__el"><a class="functional__link link" href="#">Photo</a></li>
-              <li class="functional__el"><a class="functional__link link" href="#">File</a></li>
-              <li class="functional__el"><a class="functional__link link" href="#">Drawing</a></li>
+               <li class="functional__el"><a class="functional__link link" href="#">Текст</a></li>
+               <li class="functional__el"><a class="functional__link link" href="#">Чек-лист</a></li>
+               <li class="functional__el"><a class="functional__link link" href="#">Аудио</a></li>
+              <li class="functional__el"><a class="functional__link link" href="#">Фото</a></li>
+              <li class="functional__el"><a class="functional__link link" href="#">Файл</a></li>
+              <li class="functional__el"><a class="functional__link link" href="#">Рисунок</a></li>
             </ul>
             <div class="functional__showing">
                <img class="functional__showing-img" src="{% static 'non/img/home/functional-img-text.png' %}" alt="Show font options">
-               <div class="functional__showing-descr">Make your text perfect by using variety of fonts and color palettes.</div>
+               <div class="functional__showing-descr">Создайте идеальный почерк, используя разнообразие шрифтов и цветовой палитры.</div>
             </div>
          </div>
       </div>
