@@ -10,7 +10,7 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
         
-@receiver(pre_save, sender=User)
+@receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
     # remove all previous profile pics before saving
     path = os.path.dirname(instance.profile.image.path)

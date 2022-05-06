@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'NONapp.views',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
