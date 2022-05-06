@@ -41,6 +41,10 @@
    color: var(--main-color);
 }
 
+.visible-hidden {
+   display: none;
+}
+
 @media(max-width: 928px) {
    .container {
       padding: 0 40px;
