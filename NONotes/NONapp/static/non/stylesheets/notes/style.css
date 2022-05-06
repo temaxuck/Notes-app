@@ -101,6 +101,10 @@
    font-style: oblique;
 }
 
+.main {
+   width: 100%;
+}
+
 .hero {
    position: relative;
 }

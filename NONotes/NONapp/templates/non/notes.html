@@ -170,7 +170,7 @@
                         <span class="hero__notes-date">35 мин назад</span>
                      </li>
 
-                     <li class="hero__notes-el">
+                     <!-- <li class="hero__notes-el">
                         <div class="hero__util">
                            <ul class="hero__util-list">
                               <li class="hero__util-el hero__util-el--arrow">
@@ -256,7 +256,7 @@
                         <h2 class="hero__notes-header">Заголовочек</h2>
                         <p class="hero__notes-descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?</p>
                         <span class="hero__notes-date">35 мин назад</span>
-                     </li>
+                     </li> -->
                   </ul>
                </div>
             </div>
@@ -264,6 +264,9 @@
       </section>
    </main>
 </div>
+{% block afterscripts %}
+   <script src="{% static 'non/js/notes/openNotes.js'%}"></script>
+{% endblock %}
 {% endblock %}
 
 <!-- класс hero__notes-el--test открывает заметку -->
