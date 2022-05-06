@@ -57,7 +57,7 @@
    background:
    linear-gradient(#A2C8B5 0 0) 
    right / var(--d, 0%) 100% no-repeat;
-   transition: 0.5s;
+   transition: background 0.5s;
 }
 
 .aside__el--anim:hover {
@@ -122,8 +122,18 @@
    align-items: center;
 }
 
+.hero__func-el {
+   transform: none;
+   transition: transform 0.3s ease-in-out;
+}
+
 .hero__func-el:not(:last-child) {
    margin-right: 1rem;
+}
+
+.hero__func-el:hover {
+   transform: scale(1.2);
+   transition: transform 0.3s ease-in-out;
 }
 
 .hero__descr {
@@ -197,21 +207,22 @@
 }
 
 .hero__notes-el {
-   transition: all 0.3s ease-in-out;
+   box-shadow: none;
+   transition: box-shadow 0.3s ease-in-out;
 }
 
 .hero__notes-el:hover {
-   transition: all 0.3s ease-in-out;
+   transition: box-shadow 0.3s ease-in-out;
    box-shadow: 0 0 10px 4px #c4c4c4;
 }
 
 .hero__util-el--hover {
-   transition: all 0.3s ease-in-out;
+   transition: transform 0.3s ease-in-out;
 }
 
 .hero__util-el--hover:hover {
    transform: scale(1.2);
-   transition: all 0.3s ease-in-out;
+   transition: transform 0.3s ease-in-out;
 }
 
 .hero__util-el--close {

@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+   scroll-behavior: smooth;
+}
+
 .header__top {
    margin-bottom: 7vw;
 }

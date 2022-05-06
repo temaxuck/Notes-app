@@ -21,8 +21,9 @@
                   <a class="header__link" href="{% url 'profile' %}">{{ user.username }}</a>
                   <a class="header__link" href="{% url 'logout' %}">Log Out</a>
                {% else %}
-                  <a class="header__link" href="{% url 'loginpage' %}">Вход</a>
-                  <a class="header__link" href="{% url 'signuppage' %}">Регистрация</a>
+                  <a class="header__link" href="{% url 'login' %}">Вход</a>
+                  <a class="header__link" href="{% url 'register' %}">Регистрация</a>
+                  <a class="header__link" href="{% url 'notes' %}">Goto Notes</a>
                {% endif %}
             </div>
          </div>

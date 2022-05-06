@@ -94,7 +94,7 @@
 
 
 .register__form-input:required:valid {
-   transition: all 0.3s ease-in-out;
+   transition: border 0.7s ease-in-out;
    border-color: var(--main-color, green);
 }
 

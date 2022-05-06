@@ -26,7 +26,7 @@ def register(request):
         'title': 'Register'
     }
 
-    return render(request, 'users/register.html', context)
+    return render(request, 'users/signup.html', context)
 
 def login(request):
     if request.user.is_authenticated:
