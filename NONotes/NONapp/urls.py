@@ -22,7 +22,5 @@ from .views import account, general
 
 urlpatterns = [
     path('', general.home, name='home'),
-    path('login/', account.login, name='login'),
-    path('signup/', account.signup, name='signup'),
     path('create/', account.create, name='create'),
 ]
