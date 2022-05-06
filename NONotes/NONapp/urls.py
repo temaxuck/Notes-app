@@ -19,15 +19,8 @@ from django.urls import path
 from .forms import NoteForm
 from .models import Note
 from .views import account, general
-from django.conf import settings
-from django.conf.urls.static import static
-
-
 
 urlpatterns = [
     path('', general.home, name='home'),
-    path('login/', account.login, name='loginpage'),
-    path('signup/', account.signup, name='signuppage'),
     path('create/', account.create, name='create'),
-    path('notes/', account.notes, name='notes')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
