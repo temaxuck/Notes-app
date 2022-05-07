@@ -13,8 +13,8 @@
    --input-padding-lr: clamp(0.7rem, calc(var(--base-scale) * 1.75), 1.75rem);
    --input-padding-tb: clamp(0.7rem, calc(var(--base-scale) * 1.5), 1.5rem);
 
-   --margin-bottom: clamp(0.5rem, calc(var(--base-scale) * 3), 3rem);
-   --margin-small-bottom: clamp(0.5rem, calc(var(--base-scale) * 3), 2rem);
+   --margin-bottom: clamp(2rem, calc(var(--base-scale) * 3), 3rem);
+   --margin-small-bottom: clamp(1rem, calc(var(--base-scale) * 3), 2rem);
 
    --main-color: #81B29A;
    --active-color: #498266;
