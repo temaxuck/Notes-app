@@ -97,3 +97,62 @@
 .authorization__form-input:hover:invalid {
    border: 2px solid var(--attention-color, red);
 } */
+
+@media (max-width: 512px) {
+   .full-height {
+      height: initial;
+   }
+
+   .container {
+      /* max-width: 320px; */
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+   }
+
+   .authorization__block {
+      display: block;
+   }
+
+   .authorization__content {
+      width: 100%;
+   }
+
+   .authorization__img {
+      display: none;
+   }
+
+   .authorization__instruction {
+      font-size: calc(var(--p-small-size, 1.5rem) + 0.2rem);
+      font-weight: 500;
+   }
+
+   .regiter__form-input-group {
+      margin-bottom: var(--margin-bottom, 2rem);
+   }
+
+   .authorization__form-name {
+      font-size: calc(var(--p-small-size, 1.5rem) + 0.2rem);
+   }
+
+   .authorization__form-input {
+      display: block;
+      width: 100%;
+   }
+}
+
+@media (min-width: 513px) and (max-width: 767px) {
+   .full-height {
+      height: initial;
+   }
+
+   .container {
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+   }
+
+   .authorization__content {
+      width: 45%;
+   }
+}
