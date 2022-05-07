@@ -84,8 +84,8 @@
    background-color: #A2C8B5;
    border-radius: 10px;
    padding: 1rem;
-   grid-template-columns: auto 1fr;
-   gap: 1rem;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.5rem;
    margin: auto 40px 40px 40px;
 }
 
@@ -113,6 +113,7 @@
    display: flex;
    flex-direction: row;
    justify-content: space-between;
+   align-items: flex-start;
    margin-bottom: 0.5rem;
 }
 
@@ -144,7 +145,6 @@
    display: inline-block;
    font-size: var(--p-size, 1.5rem);
    font-weight: 500;
-   margin-bottom: var(--margin-small-bottom, 2rem);
 }
 
 .hero__notes-list {
@@ -266,4 +266,95 @@
 
 .hero__util {
    display: none;
+}
+
+@media (max-width: 512px) {
+
+   .aside {
+      width: 10% !important;
+   }
+
+   .hero__util {
+      display: none !important;
+   }
+
+   .full-height {
+      height: initial;
+   }
+
+   .header {
+      margin-bottom: var(--margin-bottom, 3rem);
+   }
+
+   .container {
+      /* max-width: 320px; */
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+      padding-top: 40px;
+   }
+   
+   .hero__top {
+      flex-direction: column;
+      margin-bottom: 1rem;
+   }
+
+   .hero__header-block {
+      margin-bottom: 1rem;
+   }
+
+   .hero__btn {
+      padding: 0;
+   }
+
+   .hero__func-list {
+      justify-content: space-between;
+      width: 100%;
+   }
+
+   .hero__func-el {
+      max-width: 2rem;
+   }
+
+   .hero__notes-list {
+      padding: 0;
+   }
+
+   .hero__notes-el:hover {
+      transition: none;
+      box-shadow: none;
+   }
+}
+
+@media (max-width: 767px) {
+   .notes-container {
+      padding: 20px;
+   }
+
+   .aside__logo {
+      font-size: var(--link-size, 2rem);
+      padding: 30px 20px 0 10px;
+      margin-bottom: 20px;
+   }
+
+   .aside__el {
+      padding: 10px 0 10px 10px;
+   }
+
+   .aside__account-block {
+      display: grid;
+      color: var(--white-color, #fff);
+      background-color: #A2C8B5;
+      border-radius: 10px;
+      padding: 0.5rem;
+      grid-template-columns: 0.6fr 1fr;
+      gap: 0.5rem;
+      margin: auto 10px 10px 10px;
+   }
+
+   .aside__descr {
+      font-size: 0.6rem;
+      font-weight: 500;
+      font-style: oblique;
+   }
 }

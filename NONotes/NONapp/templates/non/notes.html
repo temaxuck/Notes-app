@@ -60,7 +60,10 @@
             <div class="hero__inner">
                <div class="hero__content">
                   <div class="hero__top">
-                     <h1 class="hero__header">Все заметки</h1>
+                     <div class="hero__header-block">
+                        <h1 class="hero__header">Все заметки</h1>
+                        <span class="hero__descr"><output class="hero__counter">0</output> шт.</span>
+                     </div>
                      <ul class="hero__func-list">
                         <li class="hero__func-el">
                            <button class="hero__btn hero__btn--add btn"><img class="hero__btn-img" src="{% static 'non/img/notes/add.svg' %}" alt=""></button>
@@ -81,7 +84,6 @@
                      <li class="hero__el"><a class="hero__link" href="#"></a></li>
                      <li class="hero__el"><a class="hero__link" href="#"></a></li>
                   </ul>
-                  <span class="hero__descr"><output class="hero__counter">0</output> шт.</span>
                </div>
                <div class="hero__notes">
                   <ul class="hero__notes-list">
