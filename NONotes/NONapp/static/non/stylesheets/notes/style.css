@@ -57,7 +57,7 @@
    background:
    linear-gradient(#A2C8B5 0 0) 
    right / var(--d, 0%) 100% no-repeat;
-   transition: 0.5s;
+   transition: background 0.5s;
 }
 
 .aside__el--anim:hover {
@@ -79,13 +79,13 @@
 }
 
 .aside__account-block {
+   display: grid;
    color: var(--white-color, #fff);
    background-color: #A2C8B5;
    border-radius: 10px;
    padding: 1rem;
-   display: grid;
-   grid-template-columns: auto 1fr;
-   gap: 1rem;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.5rem;
    margin: auto 40px 40px 40px;
 }
 
@@ -101,6 +101,10 @@
    font-style: oblique;
 }
 
+.main {
+   width: 100%;
+}
+
 .hero {
    position: relative;
 }
@@ -109,6 +113,7 @@
    display: flex;
    flex-direction: row;
    justify-content: space-between;
+   align-items: flex-start;
    margin-bottom: 0.5rem;
 }
 
@@ -122,15 +127,24 @@
    align-items: center;
 }
 
+.hero__func-el {
+   transform: none;
+   transition: transform 0.3s ease-in-out;
+}
+
 .hero__func-el:not(:last-child) {
    margin-right: 1rem;
+}
+
+.hero__func-el:hover {
+   transform: scale(1.2);
+   transition: transform 0.3s ease-in-out;
 }
 
 .hero__descr {
    display: inline-block;
    font-size: var(--p-size, 1.5rem);
    font-weight: 500;
-   margin-bottom: var(--margin-small-bottom, 2rem);
 }
 
 .hero__notes-list {
@@ -197,21 +211,22 @@
 }
 
 .hero__notes-el {
-   transition: all 0.3s ease-in-out;
+   box-shadow: none;
+   transition: box-shadow 0.3s ease-in-out;
 }
 
 .hero__notes-el:hover {
-   transition: all 0.3s ease-in-out;
+   transition: box-shadow 0.3s ease-in-out;
    box-shadow: 0 0 10px 4px #c4c4c4;
 }
 
 .hero__util-el--hover {
-   transition: all 0.3s ease-in-out;
+   transition: transform 0.3s ease-in-out;
 }
 
 .hero__util-el--hover:hover {
    transform: scale(1.2);
-   transition: all 0.3s ease-in-out;
+   transition: transform 0.3s ease-in-out;
 }
 
 .hero__util-el--close {
@@ -251,4 +266,95 @@
 
 .hero__util {
    display: none;
+}
+
+@media (max-width: 512px) {
+
+   .aside {
+      width: 10% !important;
+   }
+
+   .hero__util {
+      display: none !important;
+   }
+
+   .full-height {
+      height: initial;
+   }
+
+   .header {
+      margin-bottom: var(--margin-bottom, 3rem);
+   }
+
+   .container {
+      /* max-width: 320px; */
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+      padding-top: 40px;
+   }
+   
+   .hero__top {
+      flex-direction: column;
+      margin-bottom: 1rem;
+   }
+
+   .hero__header-block {
+      margin-bottom: 1rem;
+   }
+
+   .hero__btn {
+      padding: 0;
+   }
+
+   .hero__func-list {
+      justify-content: space-between;
+      width: 100%;
+   }
+
+   .hero__func-el {
+      max-width: 2rem;
+   }
+
+   .hero__notes-list {
+      padding: 0;
+   }
+
+   .hero__notes-el:hover {
+      transition: none;
+      box-shadow: none;
+   }
+}
+
+@media (max-width: 767px) {
+   .notes-container {
+      padding: 20px;
+   }
+
+   .aside__logo {
+      font-size: var(--link-size, 2rem);
+      padding: 30px 20px 0 10px;
+      margin-bottom: 20px;
+   }
+
+   .aside__el {
+      padding: 10px 0 10px 10px;
+   }
+
+   .aside__account-block {
+      display: grid;
+      color: var(--white-color, #fff);
+      background-color: #A2C8B5;
+      border-radius: 10px;
+      padding: 0.5rem;
+      grid-template-columns: 0.6fr 1fr;
+      gap: 0.5rem;
+      margin: auto 10px 10px 10px;
+   }
+
+   .aside__descr {
+      font-size: 0.6rem;
+      font-weight: 500;
+      font-style: oblique;
+   }
 }

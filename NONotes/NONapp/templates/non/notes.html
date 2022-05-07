@@ -12,7 +12,7 @@
             <div class="aside__logo logo">
                NotOnlyNotes
             </div>
-            <ul class="aside__list">
+            <ul class="aside__list aside__list--small">
                <li class="aside__el aside__el--anim">
                   <a class="aside__link" href="#">
                      <img class="aside__link-icon" src="{% static 'non/img/notes/notes.svg' %}" alt="">
@@ -60,7 +60,10 @@
             <div class="hero__inner">
                <div class="hero__content">
                   <div class="hero__top">
-                     <h1 class="hero__header">Все заметки</h1>
+                     <div class="hero__header-block">
+                        <h1 class="hero__header">Все заметки</h1>
+                        <span class="hero__descr"><output class="hero__counter">0</output> шт.</span>
+                     </div>
                      <ul class="hero__func-list">
                         <li class="hero__func-el">
                            <button class="hero__btn hero__btn--add btn"><img class="hero__btn-img" src="{% static 'non/img/notes/add.svg' %}" alt=""></button>
@@ -71,6 +74,9 @@
                         <li class="hero__func-el">
                            <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/trash.svg' %}" alt=""></button>
                         </li>
+                        <li class="hero__func-el">
+                           <button class="hero__btn btn hero__btn--test"><img class="hero__btn-img" alt="">Test Aside</button>
+                        </li>
                      </ul>
                   </div>
                   <ul class="hero__list">
@@ -78,7 +84,6 @@
                      <li class="hero__el"><a class="hero__link" href="#"></a></li>
                      <li class="hero__el"><a class="hero__link" href="#"></a></li>
                   </ul>
-                  <span class="hero__descr"><output class="hero__counter">0</output> шт.</span>
                </div>
                <div class="hero__notes">
                   <ul class="hero__notes-list">
@@ -170,7 +175,7 @@
                         <span class="hero__notes-date">35 мин назад</span>
                      </li>
 
-                     <li class="hero__notes-el">
+                     <!-- <li class="hero__notes-el">
                         <div class="hero__util">
                            <ul class="hero__util-list">
                               <li class="hero__util-el hero__util-el--arrow">
@@ -256,7 +261,7 @@
                         <h2 class="hero__notes-header">Заголовочек</h2>
                         <p class="hero__notes-descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?</p>
                         <span class="hero__notes-date">35 мин назад</span>
-                     </li>
+                     </li> -->
                   </ul>
                </div>
             </div>
@@ -264,6 +269,10 @@
       </section>
    </main>
 </div>
+{% block afterscripts %}
+   <script src="{% static 'non/js/notes/openNotes.js'%}"></script>
+   <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
+{% endblock %}
 {% endblock %}
 
 <!-- класс hero__notes-el--test открывает заметку -->
