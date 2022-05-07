@@ -1,3 +1,4 @@
 NONotes/NONotes/config.py
 NONotes/media/profile_img
 *migrations
+.DS_Store
