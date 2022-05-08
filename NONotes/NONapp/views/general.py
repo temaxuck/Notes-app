@@ -7,4 +7,7 @@ def home(request):
 
 def notes(request):
     text = request.user.note_set.all()
-    return render(request, 'non/notes.html',  {'text': text})
+    context = {
+        'notes': request.user.note_set.all(),
+    }
+    return render(request, 'non/notes.html',  context)
