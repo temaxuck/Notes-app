@@ -87,6 +87,7 @@
                </div>
                <div class="hero__notes">
                   <ul class="hero__notes-list">
+                     {% for note in notes %}
                      <li class="hero__notes-el"> 
                         <div class="hero__util">
                            <ul class="hero__util-list">
@@ -170,11 +171,13 @@
                               </li>
                            </ul>
                         </div>
-                        <h2 class="hero__notes-header">Заголовочек</h2>
-                        <p class="hero__notes-descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?</p>
-                        <span class="hero__notes-date">35 мин назад</span>
+                        <h2 class="hero__notes-header">{{ note.title }}</h2>
+                        <p class="hero__notes-descr">
+                           {{ note.content }}
+                        </p>
+                        <span class="hero__notes-date">{{ note.timestampLastModified }}</span>
+                        {% endfor %}
                      </li>
-
                      <!-- <li class="hero__notes-el">
                         <div class="hero__util">
                            <ul class="hero__util-list">
