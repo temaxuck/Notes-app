@@ -5,3 +5,4 @@ NONotes/media/profile_img/[0-9]*
 *.sqlite3
 *__pycache__
 *.vscode
+NONotes\\db.sqlite3

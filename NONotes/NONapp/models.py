@@ -17,5 +17,9 @@ class Note(models.Model):
     # def get_absolute_url(self):
     #     return reverse('note-edit', kwargs={'pk': self.pk})
 
+    # Когда появится view notes/create, раскоментить и изменить имя ссылки(note-edit)
+    # def get_success_url(self):
+    #     return reverse('note-edit', kwargs={'pk': self.pk})
+
     class Meta:
         ordering = ['-timestampLastModified']
