@@ -2,10 +2,12 @@ from . import *
 from django.shortcuts import render, redirect
 from ..models import Note
 from ..forms import NoteForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class NoteListView(TemplateView):
+class NoteListView(LoginRequiredMixin, TemplateView):
     model = Note
     template_name = 'non/notes.html'
+    redirect_field_name = '/user/login/?next=/notes/'
     
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
