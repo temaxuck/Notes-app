@@ -22,5 +22,6 @@ from .views import account, general
 
 urlpatterns = [
     path('', general.home, name='home'),
-    path('create/', account.create, name='create'),
+    # path('create/', account.create, name='create'),
+    path('notes/', general.notes, name='notes'),
 ]

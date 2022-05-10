@@ -1,4 +1,5 @@
 NONotes/NONotes/config.py
-NONotes/media/profile_img
+NONotes/media/profile_img/[0-9]*
 *migrations
 .DS_Store
+*.sqlite3

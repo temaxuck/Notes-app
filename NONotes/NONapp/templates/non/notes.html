@@ -44,13 +44,14 @@
                   </a>
                </li>
             </ul>
-            <div class="aside__account-block">
-               <img class="aside__avatar" src="{% static 'non/img/notes/avatar.png' %}" alt="Avatar image">
-               <div class="aside__account-block-content">
-                  <h3 class="aside__name">Иван Иванов</h3>
-                  <p class="aside__descr">Некое описание профиля</p>
-               </div>
-            </div>
+               <a href="{% url 'profile' %}" class="aside__account-block">
+                  <img class="aside__avatar" src="{{ user.profile.image.url }}" alt="Avatar image" height="90">
+                  <div class="aside__account-block-content">
+                     <h3 class="aside__name">{{ user.username }}</h3>
+                     <p class="aside__descr">Некое описание профиля</p>
+                  </div>
+               </a>
+            </a>
          </div>
       <!-- </div> -->
    </aside>
