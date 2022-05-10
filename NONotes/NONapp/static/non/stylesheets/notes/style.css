@@ -166,13 +166,31 @@
 
 .hero__notes-header {
    font-size: var(--link-size, 2.25rem);
-   margin-bottom: var(--margin-small-bottom, 1.5rem);
+   /* margin-bottom: var(--margin-small-bottom, 1.5rem); */
+   width: 100%;
+   height: calc(var(--margin-small-bottom, 1.5rem) + 2.25rem);
+   resize: none;
+   border: none;
+}
+
+.hero__notes-header[disabled] {
+   color: inherit;
+   background-color: inherit;
 }
 
 .hero__notes-descr {
    font-weight: 500;
    font-size: var(--p-size, 1.5rem);
    margin-bottom: 1rem;
+   display: block;
+   resize: none;
+   border: none;
+   width: 100%;
+}
+
+.hero__notes-descr[disabled] {
+   color: inherit;
+   background-color: inherit;
 }
 
 .hero__notes-date {
