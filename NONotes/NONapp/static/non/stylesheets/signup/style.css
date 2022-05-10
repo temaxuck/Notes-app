@@ -94,10 +94,69 @@
 
 
 .register__form-input:required:valid {
-   transition: all 0.3s ease-in-out;
+   transition: border 0.7s ease-in-out;
    border-color: var(--main-color, green);
 }
 
 /* .register__form-input:hover:invalid {
    border: 2px solid var(--attention-color, red);
 } */
+
+@media (max-width: 512px) {
+   .full-height {
+      height: initial;
+   }
+
+   .container {
+      width: 90%;
+      padding: 0;
+   }
+
+   .register__block {
+      display: block;
+   }
+
+   .register__content {
+      width: 100%;
+   }
+
+   .register__img {
+      display: none;
+   }
+
+   .regiter__form-input-group {
+      margin-bottom: var(--margin-bottom, 2rem);
+   }
+
+   .register__instruction {
+      font-size: calc(var(--p-small-size, 1.5rem) + 0.2rem);
+   }
+
+   .register__form-name {
+      font-size: calc(var(--p-small-size, 1.5rem) + 0.2rem);
+   }
+
+   .register__btn {
+      margin-bottom: var(--small-margin-bottom, 2rem);
+   }
+
+   .register__decorative {
+      width: 100%;
+   }
+
+   .register__politics {
+      font-size: calc(var(--p-small-size, 1.5rem) + 0.2rem);
+   }
+}
+
+@media (min-width: 513px) and (max-width: 767px) {
+   .full-height {
+      height: initial;
+   }
+
+   .container {
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+   }
+}

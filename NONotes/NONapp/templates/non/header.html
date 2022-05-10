@@ -4,7 +4,7 @@
     <div class="btns">
         {% if user.is_authenticated %}
             <a href="{% url 'profile' %}">{{ user.username }}</a>    
-            <a href="{% url 'logout' %}">Log out</a>
+            <a href="{% url 'signout' %}">Log out</a>
         {% else %}
             <a href="{% url 'login' %}">Log In</a>
             <a href="{% url 'register' %}">Register</a>

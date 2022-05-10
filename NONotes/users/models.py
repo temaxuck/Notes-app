@@ -11,6 +11,7 @@ def get_upload_path(instance, filename):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default=os.path.join('profile_img', 'default.png'), upload_to=get_upload_path)
+    description = models.CharField(max_length=100, default='', blank=True, null=True)
     
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -28,4 +29,8 @@ class Profile(models.Model):
             
         else:
             img = Image.open(os.path.join(Path(self.image.path).parent.parent, 'default.png'))
+            
+            if not os.path.exists(os.path.dirname(self.image.path)): # The folder with user's ID may not exist, so we are checking
+                os.mkdir(os.path.dirname(self.image.path))
+                
             img.save(self.image.path)

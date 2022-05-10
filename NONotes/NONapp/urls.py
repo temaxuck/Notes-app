@@ -18,10 +18,10 @@ from django.urls import path
 
 from .forms import NoteForm
 from .models import Note
-from .views import account, general
+from .views import generalviews, notesviews
 
 urlpatterns = [
-    path('', general.home, name='home'),
-    # path('create/', account.create, name='create'),
-    path('notes/', general.notes, name='notes'),
+    path('', generalviews.home, name='home'),
+    # path('create/', notes.create, name='create'),
+    path('notes/', notesviews.NoteListView.as_view(), name='notes'),
 ]
