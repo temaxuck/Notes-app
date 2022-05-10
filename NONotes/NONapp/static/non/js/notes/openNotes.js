@@ -8,4 +8,5 @@ openNotes.forEach((item) => item.addEventListener('click', () => {
 
    let date = item.querySelector('.hero__notes-date');
    (date.style.display === "none") ? date.style.display = 'block' : date.style.display = 'none';
+
 }));

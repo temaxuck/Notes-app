@@ -24,4 +24,5 @@ urlpatterns = [
     path('', general.home, name='home'),
     path('create/', account.create, name='create'),
     path('notes/', general.notes, name='notes'),
+    path('create_note', general.create_note, name='create_note')
 ]
