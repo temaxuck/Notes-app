@@ -63,11 +63,14 @@
                   <div class="hero__top">
                      <div class="hero__header-block">
                         <h1 class="hero__header">Все заметки</h1>
-                        <span class="hero__descr"><output class="hero__counter">0</output> шт.</span>
+                        <span class="hero__descr"><output class="hero__counter">{{ notes.count }}</output> шт.</span>
                      </div>
                      <ul class="hero__func-list">
                         <li class="hero__func-el">
-                           <button class="hero__btn hero__btn--add btn"><img class="hero__btn-img" src="{% static 'non/img/notes/add.svg' %}" alt=""></button>
+                           <form action="{% url 'create_note' %}" method="post">
+                              {% csrf_token %}
+                              <button class="hero__btn hero__btn--add btn" type="submit"><img class="hero__btn-img" src="{% static 'non/img/notes/add.svg' %}" alt=""></button>
+                           </form>
                         </li>
                         <li class="hero__func-el">
                            <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button>
