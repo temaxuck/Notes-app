@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from ..models import Note
 from ..forms import NoteForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DeleteView
 
 class NoteListView(LoginRequiredMixin, TemplateView):
     model = Note
@@ -43,27 +44,35 @@ class NoteUpdateView(LoginRequiredMixin, TemplateView):
 		})
         
         return context
-    
 
-    
-def create(request): # Нужно переписать этот view, под новую модель заметки
+def create_note(request):
     error = ''
     if request.method == 'POST':
-        form = NoteForm(request.POST)
+        print(request.POST)
+        context = {
+            'QueryDict': request.POST,
+            'title': 'Untitled',
+            'content': '...',
+            'user': request.user
+        }
+        form = NoteForm(context)
+        #print(form)
         if form.is_valid():
             form.save()
-            return redirect('home')
         else:
             error = 'Форма была неверной'
+    print(error)
+    return redirect('notes/')
 
-    form = NoteForm
+class NoteDeleteView(DeleteView):
+    model = Note
 
-    data = {
-        'form': form,
-        'error': error
-    }
+    def get(self, args, **kwargs):
+        return self.post(args, **kwargs)
 
-    return render(request, 'non/create.html', data)
+    def get_success_url(self) -> str:
+        return reverse('notes')
+
 
 # def notes(request):
 #     if request.method == 'POST':

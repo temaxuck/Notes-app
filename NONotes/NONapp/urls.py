@@ -24,5 +24,6 @@ urlpatterns = [
     path('', generalviews.home, name='home'),
     # path('create/', notes.create, name='create'),
     path('notes/', notesviews.NoteListView.as_view(), name='notes'),
-    path('create_note', generalviews.create_note, name='create_note')
+    path('create_note', notesviews.create_note, name='create_note'),
+    path('<pk>/delete_note', notesviews.NoteDeleteView.as_view(), name='delete_note')
 ]
