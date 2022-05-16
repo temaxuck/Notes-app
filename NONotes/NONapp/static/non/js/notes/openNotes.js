@@ -1,41 +1,50 @@
-const openNotes = document.querySelectorAll(".hero__notes-el");
-const closeNotes = document.querySelectorAll('.hero__util-el--close');
-let flag = false;
+function closeNote(note) {
+	note.classList.remove("hero__notes-el--test");
+	
+	let bar = note.querySelector(".hero__util");
+	bar.style.display = 'none'
+	
+	let date = note.querySelector('.hero__notes-date');
+	date.style.display = 'block';
 
-openNotes.forEach((item) => item.addEventListener('click', () => {
-   if(!flag) {
-      item.classList.add("hero__notes-el--test");
-      let bar = item.querySelector(".hero__util");
-      (bar.style.display === "block") ? bar.style.display = 'none' : bar.style.display = 'block';
+	let textareaHeader = note.querySelector('.hero__notes-header');
+	textareaHeader.readOnly = true;
+	
+	let textareaDescr = note.querySelector('.hero__notes-descr');
+	textareaDescr.readOnly = true;
+}
 
-      let date = item.querySelector('.hero__notes-date');
-      (date.style.display === "none") ? date.style.display = 'block' : date.style.display = 'none';
+let openNotes = document.querySelectorAll(".hero__notes-el");
+let closeNotes = document.querySelectorAll('.hero__util-el--close');
+let main = document.querySelector('.main');
 
-      let textareaDescr = item.querySelector('.hero__notes-descr');
-      (textareaDescr.disabled == true) ? textareaDescr.disabled = false : textareaDescr.disabled = true;
+openNotes.forEach((item) => item.addEventListener('click', (e) => {
+	if (item.classList.contains('hero__notes-el--test'))
+		return
+	item.classList.add("hero__notes-el--test");
+	
+	let bar = item.querySelector(".hero__util");
+	(bar.style.display === "block") ? bar.style.display = 'none' : bar.style.display = 'block';
+	
+	let date = item.querySelector('.hero__notes-date');
+	(date.style.display === "none") ? date.style.display = 'block' : date.style.display = 'none';
 
-      let textareaHeader = item.querySelector('.hero__notes-header');
-      (textareaHeader.disabled == true) ? textareaHeader.disabled = false : textareaHeader.disabled = true;
-      flag = true;
-   }
+	let textareaHeader = item.querySelector('.hero__notes-header');
+	textareaHeader.readOnly = false;
+	
+	let textareaDescr = item.querySelector('.hero__notes-descr');
+	textareaDescr.readOnly = false;
 }));
 
-closeNotes.forEach((item) => item.addEventListener('click', () => {
-   if(flag) {
-      openNotes.forEach((item) => item.classList.remove('hero__notes-el--test'))
-      // document.classList.remove("hero__notes-el--test");
-      
-      let bar = item.querySelector(".hero__util");
-      (bar.style.display === "block") ? bar.style.display = 'none' : bar.style.display = 'block';
-   
-      let date = item.querySelector('.hero__notes-date');
-      (date.style.display === "none") ? date.style.display = 'block' : date.style.display = 'none';
-   
-      let textareaDescr = item.querySelector('.hero__notes-descr');
-      (textareaDescr.disabled == true) ? textareaDescr.disabled = false : textareaDescr.disabled = true;
-
-      let textareaHeader = item.querySelector('.hero__notes-header');
-      (textareaHeader.disabled == true) ? textareaHeader.disabled = false : textareaHeader.disabled = true;
-      flag = false;
-   }
+closeNotes.forEach((item) => item.addEventListener('click', (e) => {
+	e.stopPropagation();
+	closeNote(item.parentNode.parentNode.parentNode);
 }));
+
+main.addEventListener('click', (e) => {
+	console.log(document.querySelector('.hero'));
+	if (e.target == main || e.target == document.querySelector('.container')) 
+		document.querySelectorAll('.hero__notes-el--test').forEach(item => {
+			closeNote(item);
+		});
+})

@@ -9,6 +9,7 @@ psycopg2 = "*"
 django-crispy-forms = "*"
 pillow = "*"
 django-widget-tweaks = "*"
+django-easy-timezones = "*"
 
 [dev-packages]
 

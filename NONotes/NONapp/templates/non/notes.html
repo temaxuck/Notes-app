@@ -44,13 +44,14 @@
                   </a>
                </li>
             </ul>
-            <div class="aside__account-block">
-               <img class="aside__avatar" src="{% static 'non/img/notes/avatar.png' %}" alt="Avatar image">
-               <div class="aside__account-block-content">
-                  <h3 class="aside__name">Иван Иванов</h3>
-                  <p class="aside__descr">Некое описание профиля</p>
-               </div>
-            </div>
+               <a href="{% url 'profile' %}" class="aside__account-block">
+                  <img class="aside__avatar" src="{{ user.profile.image.url }}" alt="Avatar image">
+                  <div class="aside__account-block-content">
+                     <h3 class="aside__name"> {{ user.username }} </h3>
+                     <p class="aside__descr"> {{ user.profile.description }} </p>
+                  </div>
+               </a>
+            </a>
          </div>
       <!-- </div> -->
    </aside>
@@ -62,19 +63,22 @@
                   <div class="hero__top">
                      <div class="hero__header-block">
                         <h1 class="hero__header">Все заметки</h1>
-                        <span class="hero__descr"><output class="hero__counter">0</output> шт.</span>
+                        <span class="hero__descr"><output class="hero__counter">{{ notes.count }}</output> шт.</span>
                      </div>
                      <ul class="hero__func-list">
                         <li class="hero__func-el">
-                           <button class="hero__btn hero__btn--add btn"><img class="hero__btn-img" src="{% static 'non/img/notes/add.svg' %}" alt=""></button>
+                           <form class="hero__search-block" action="{% url 'search_notes' %}" method="get">
+                              <input class="hero__search-label" name="q" type="text" placeholder="Search...">
+                              <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button>
+                           </form>
                         </li>
-                        <li class="hero__func-el">
-                           <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button>
+                        <li class="hero__func-el hero__func-el--hover">
+                           <form action="{% url 'create_note' %}" method="post">
+                              {% csrf_token %}
+                              <button class="hero__btn hero__btn--add btn" type="submit"><img class="hero__btn-img" src="{% static 'non/img/notes/add.svg' %}" alt=""></button>
+                           </form>
                         </li>
-                        <li class="hero__func-el">
-                           <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/trash.svg' %}" alt=""></button>
-                        </li>
-                        <li class="hero__func-el">
+                        <li class="hero__func-el hero__func-el--hover">
                            <button class="hero__btn btn hero__btn--test"><img class="hero__btn-img" alt="">Test Aside</button>
                         </li>
                      </ul>
@@ -87,7 +91,16 @@
                </div>
                <div class="hero__notes">
                   <ul class="hero__notes-list">
-                     <li class="hero__notes-el"> 
+                     {% for note in notes %}
+                     <li class="hero__notes-el">
+                        <div class="hero__delete-block">
+                           <form action="{% url 'delete_note' note.id %}" method="post">
+                              {% csrf_token %}
+                              <button class="hero__delete-btn hero__util-el--hover btn" type="submit">
+                                 <img src="{% static 'non/img/notes/trash.svg' %}" alt="">
+                              </button>
+                           </form>
+                        </div>
                         <div class="hero__util">
                            <ul class="hero__util-list">
                               <li class="hero__util-el hero__util-el--arrow">
@@ -170,98 +183,14 @@
                               </li>
                            </ul>
                         </div>
-                        <textarea class="hero__notes-header" disabled>Заголовочек</textarea>
-                        <textarea class="hero__notes-descr" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?</textarea>
-                        <span class="hero__notes-date">35 мин назад</span>
-                     </li>
-
-                     <!-- <li class="hero__notes-el">
-                        <div class="hero__util">
-                           <ul class="hero__util-list">
-                              <li class="hero__util-el hero__util-el--arrow">
-                                 <select class="hero__util-select" name="choose font">
-                                    <option value="montserrat">Montserrat</option>
-                                    <option value="sans-serif">Sans-serif</option>
-                                    <option value="open-sans">Open-sans</option>
-                                    <option value="times">Times</option>
-                                    <option value="times-new-roman">Times New Roman</option>
-                                  </select>                                     
-                              </li>
-                              <li class="hero__util-el hero__util-el--arrow">
-                                 <select class="hero__util-select hero__util-select--size" name="choose font-size">
-                                    <option value="16">16</option>
-                                    <option value="18">18</option>
-                                    <option value="22">22</option>
-                                    <option value="24">24</option>
-                                    <option value="26">26</option>
-                                    <option value="28">28</option>
-                                    <option value="30">30</option>
-                                    <option value="32">32</option>
-                                    <option value="34">34</option>
-                                    <option value="36">36</option>
-                                  </select>                                     
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/bold.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/underline.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/italic.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/center.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/left.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/stretch.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/right.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/list.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/theme.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--hover btn">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/goals.svg' %}" alt="">
-                                 </button>
-                              </li>
-                              <li class="hero__util-el hero__util-el--close hero__util-el--hover">
-                                 <button class="hero__util-btn btn">
-                                    <img class="hero__util-img" src="{% static 'non/img/notes/close.svg' %}" alt="">
-                                 </button>
-                              </li>
-                           </ul>
-                        </div>
-                        <h2 class="hero__notes-header">Заголовочек</h2>
-                        <p class="hero__notes-descr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ut?</p>
-                        <span class="hero__notes-date">35 мин назад</span>
-                     </li> -->
+						<form class="hero__notes-content">
+							{% csrf_token %}
+							<input class="hero__notes-header" value="{{ note.title }}" readonly/> 
+							<textarea class="hero__notes-descr" readonly> {{ note.content }}</textarea>
+						</form>
+                        <span class="hero__notes-date">{{ note.timestampLastModified }}</span>
+					</li>
+					{% endfor %}
                   </ul>
                </div>
             </div>
@@ -270,9 +199,7 @@
    </main>
 </div>
 {% block afterscripts %}
-   <script src="{% static 'non/js/notes/openNotes.js'%}"></script>
+   <script src="{% static 'non/js/notes/openNotes.js'%}?version=3"></script>
    <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
 {% endblock %}
 {% endblock %}
-
-<!-- класс hero__notes-el--test открывает заметку -->

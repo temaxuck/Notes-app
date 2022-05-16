@@ -5,6 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.contrib.auth import logout
 
 def register(request):
     if request.user.is_authenticated:
@@ -41,6 +42,13 @@ def login(request):
         },
     }
     return LoginView.as_view(**defaults)(request)
+
+@login_required
+def signout(request):
+    logout(request)
+    messages.success(request, 'You have been logged out.')
+    return redirect('home')
+
 
 @login_required
 def profile(request):

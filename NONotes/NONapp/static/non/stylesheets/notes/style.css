@@ -136,7 +136,7 @@
    margin-right: 1rem;
 }
 
-.hero__func-el:hover {
+.hero__func-el--hover:hover {
    transform: scale(1.2);
    transition: transform 0.3s ease-in-out;
 }
@@ -148,7 +148,7 @@
 }
 
 .hero__notes-list {
-   height: 70vh;
+   height: 80vh;
    overflow-x: scroll;
    padding: 1rem; /*Убрать попозже*/
 }
@@ -201,8 +201,6 @@
    text-align: right;
 }
 
-
-
 .hero__notes-el--test {
    position: absolute;
    display: block;
@@ -249,6 +247,7 @@
 
 .hero__util-el--close {
    margin-left: auto;
+   margin-right: 0.5rem;
 }
 
 .hero__util-select {
@@ -284,6 +283,30 @@
 
 .hero__util {
    display: none;
+   clear: both;
+}
+
+.hero__delete-block {
+   display: block;
+   float: right;
+}
+
+.hero__delete-btn img {
+   width: 2.5rem;
+   height: 2.5rem;
+}
+
+.hero__search-label {
+   border: 2px solid var(--active-color);
+   border-radius: 10px;
+   padding: 10px;
+   margin-right: 1rem;
+}
+
+.hero__search-block {
+   display: flex;
+   align-items: center;
+   flex-direction: row;
 }
 
 @media (max-width: 512px) {
