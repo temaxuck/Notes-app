@@ -7,12 +7,6 @@ def home(request):
     context = {}
     return render(request, 'non/home.html')
 
-def notes(request):
-    context = {
-        'notes': request.user.note_set.order_by('timestampCreated').reverse(),
-        'count': request.user.note_set.count()
-    }
-    return render(request, 'non/notes.html',  context)
 
 def create_note(request):
     error = ''

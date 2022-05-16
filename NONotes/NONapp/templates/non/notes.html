@@ -175,13 +175,14 @@
                               </li>
                            </ul>
                         </div>
-                        <h2 class="hero__notes-header"> {{ note.title }}</h2>
-                        <p class="hero__notes-descr">
-                           {{ note.content }}
-                        </p>
+						<form>
+							{% csrf_token %}
+							<input class="hero__notes-header" value="{{ note.title }}" readonly/> 
+							<textarea class="hero__notes-descr" readonly> {{ note.content }}</textarea>
+						</form>
                         <span class="hero__notes-date">{{ note.timestampLastModified }}</span>
-                        {% endfor %}
-                     </li>
+					</li>
+					{% endfor %}
                      <!-- <li class="hero__notes-el">
                         <div class="hero__util">
                            <ul class="hero__util-list">
@@ -277,7 +278,7 @@
    </main>
 </div>
 {% block afterscripts %}
-   <script src="{% static 'non/js/notes/openNotes.js'%}"></script>
+   <script src="{% static 'non/js/notes/openNotes.js'%}?version=3"></script>
    <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
 {% endblock %}
 {% endblock %}

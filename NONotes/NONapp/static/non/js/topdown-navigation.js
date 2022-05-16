@@ -9,5 +9,3 @@ function gotop() {
     else 
         document.querySelector('.go-top').style.opacity = 0;
 }
-
-document.querySelector('main').innerHTML('<div>HSADJKLSAJKd</div>')
