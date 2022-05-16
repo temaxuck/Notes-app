@@ -7,6 +7,7 @@ from django.views.generic import DeleteView
 
 def home(request):
     context = {}
-    return render(request, 'non/home.html')
+
+    return render(request, 'non/home.html', context)
 
 

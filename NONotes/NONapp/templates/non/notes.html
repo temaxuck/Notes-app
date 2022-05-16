@@ -73,7 +73,10 @@
                            </form>
                         </li>
                         <li class="hero__func-el">
-                           <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button>
+                           <form action="{% url 'search_notes' %}" method="get">
+                              <input name="q" type="text" placeholder="Search...">
+                              <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button>
+                           </form>
                         </li>
                         <li class="hero__func-el">
                            <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/trash.svg' %}" alt=""></button>
