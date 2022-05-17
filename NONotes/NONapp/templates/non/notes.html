@@ -1,6 +1,7 @@
 {% extends 'non/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
 {% block head %}
-   {% load static %}
    <link rel="stylesheet" href="{% static 'non/stylesheets/notes/style.css' %}">
 {% endblock%}
 
@@ -186,11 +187,12 @@
                               </li>
                            </ul>
                         </div>
-						<form>
+						<form method="post">
 							{% csrf_token %}
-							<input class="hero__notes-header" value="{{ note.title }}" readonly/> 
-							<textarea class="hero__notes-descr" readonly> {{ note.content }}</textarea>
-						</form>
+							<input name="title" class="hero__notes-header" value="{{ note.title }}" readonly/> 
+							<textarea name="content" class="hero__notes-descr" readonly>{{ note.content }}</textarea>
+							<button name="update_note" type="submit" value="{{ note.id }}">Save</button>
+						</form> 
                         <span class="hero__notes-date">{{ note.timestampLastModified }}</span>
 					</li>
 					{% endfor %}
