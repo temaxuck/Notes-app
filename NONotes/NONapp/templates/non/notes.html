@@ -2,13 +2,12 @@
 {% load widget_tweaks %}
 {% load static %}
 {% block head %}
-   <link rel="stylesheet" href="{% static 'non/stylesheets/notes/style.css' %}?version=33">
+   <link rel="stylesheet" href="{% static 'non/stylesheets/notes/style.css' %}?version=34">
 {% endblock%}
 
 {% block body %}
 <div class="content-wrapper">
    <aside class="aside">
-      <!-- <div class="container notes-container"> -->
          <div class="aside__inner">
             <div class="aside__logo logo">
                <a class="aside__link" href="{% url 'notes' %}">NotOnlyNotes</a>
@@ -56,17 +55,14 @@
                            </form>
                         </li>
                         <li class="hero__func-el">
-                           <!-- <form action="{% url 'search_notes' %}" method="get">
-                              <input name="q" type="text" placeholder="Search...">
-                              <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button> -->
                            <form class="hero__del-block" action="{% url 'search_notes' %}" method="get">
                               <input name="q" type="text" placeholder="Поиск по заметкам">
                               <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button>
                            </form>
                         </li>
-                        <!-- <li class="hero__func-el hero__func-el--hover">
-                           <button class="hero__btn btn hero__btn--test"><img class="hero__btn-img" alt="">Test Aside</button>
-                        </li> -->
+                        <li class="hero__func-el">
+                            <a class="header__link" href="{% url 'signout' %}">Выйти</a>
+                        </li>
                      </ul>
                   </div>
                   <ul class="hero__list">
@@ -80,8 +76,8 @@
                      {% for note in notes %}
                      <li class="hero__notes-el" onclick="openNote(this)">
                         
-                         <div style="display: block">
-                             <form action="{% url 'delete_note' note.id %}" method="post">
+                         <div class="delete_note_wrapper" style="display: block">
+                            <form action="{% url 'delete_note' note.id %}" method="post">
                                 {% csrf_token %}
                                 <button class="hero__del-note-btn hero__util-el--hover btn" type="submit">
                                    <img src="{% static 'non/img/notes/trash.svg' %}" alt="">
@@ -189,16 +185,13 @@
    </main>
 </div>
 {% block afterscripts %}
-    <script src="{% static 'non/js/notes/openNotes.js'%}?version=429"></script>
+    <script src="{% static 'non/js/notes/openNotes.js'%}?version=430"></script>
     <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
     <script src="{% static 'non/js/notes/textareaHeight.js'%}"></script>
     {% if open_note %}
         <script>
-            // openNote()
             openNote(document.querySelector('#note-{{open_note}}').parentNode)
         </script>
     {% endif %}    
 {% endblock %}
 {% endblock %}
-
-<!-- класс hero__notes-el--test открывает заметку -->

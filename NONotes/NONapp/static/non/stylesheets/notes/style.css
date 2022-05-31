@@ -173,6 +173,7 @@
    height: calc(var(--margin-small-bottom, 1.5rem) + 2.25rem);
    resize: none;
    border: none;
+   outline: none;
 }
 
 .hero__notes-header[disabled] {
@@ -316,13 +317,14 @@
 }
 
 .hero__save-note {
-   background-color: var(--main-color, #000);
-   color: var(--white-color, #fff);
-   font-weight: 700;
-   padding: var(--btn-padding-tb, 1.25rem) var(--btn-padding-lr, 1rem);
-   border-radius: 10px;
-   text-transform: uppercase;
-   display: none;
+    background-color: var(--main-color, #000);
+    width: 400px;
+    color: var(--white-color, #fff);
+    font-weight: 700;
+    padding: var(--btn-padding-tb, 1.25rem) var(--btn-padding-lr, 1rem);
+    border-radius: 10px;
+    text-transform: uppercase;
+    display: none;
 }
 
 .hero__save-note:hover {

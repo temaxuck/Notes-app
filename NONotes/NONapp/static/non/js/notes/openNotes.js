@@ -14,7 +14,10 @@ function closeNote(note) {
 	textareaDescr.readOnly = true;
     
     let save_btn = note.querySelector('.hero__save-note');
-	save_btn.style.display = "none";
+	save_btn.style.display = 'none';
+
+    let delete_note_btn = note.querySelector('.delete_note_wrapper');
+    delete_note_btn.style.display = 'block'; 
 }
 
 function openNote(note) {
@@ -36,6 +39,9 @@ function openNote(note) {
 
     let save_btn = note.querySelector('.hero__save-note');
 	save_btn.style.display = "block";
+
+    let delete_note_btn = note.querySelector('.delete_note_wrapper');
+    delete_note_btn.style.display = 'none'; 
 }
 
 let openNotes = document.querySelectorAll(".hero__notes-el");
