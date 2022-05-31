@@ -46,8 +46,8 @@ def login(request):
 @login_required
 def signout(request):
     logout(request)
-    messages.success(request, 'You have been logged out.')
-    return redirect('home')
+    messages.success(request, 'Вы вышли из учётной записи.')
+    return redirect('about')
 
 
 @login_required
@@ -71,5 +71,5 @@ def profile(request):
         'user_update_form': user_update_form,
         'profile_update_form': profile_update_form,
     }
-    return render(request, 'users/profile.html', context)
+    return render(request, 'users/profile_.html', context)
 

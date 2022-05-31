@@ -1,5 +1,6 @@
 {% extends 'non/base.html' %}
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 {% block head %}
    {% load static %}
    <link rel="stylesheet" href="{% static 'non/stylesheets/profile/style.css' %}">
@@ -11,7 +12,9 @@
       <!-- <div class="container notes-container"> -->
          <div class="aside__inner">
             <div class="aside__logo logo">
-               NotOnlyNotes
+                <a class="aside__link" href="{% url 'notes' %}">
+                    NotOnlyNotes
+                </a>
             </div>
             <ul class="aside__list aside__list--small">
                <li class="aside__el aside__el--anim">
@@ -21,7 +24,7 @@
                   </a>
                </li>
                <li class="aside__el aside__el--anim">
-                  <a class="aside__link" href="#">
+                  <a class="aside__link" href="{% url 'profile' %}">
                      <img class="aside__link-icon" src="{% static 'non/img/notes/settings.svg' %}" alt="">
                      <span>Настройки</span>
                   </a>
@@ -45,36 +48,41 @@
                <div class="profile__settings">
                   <h1 class="profile__header">Настройки</h1>
                   <h2 class="profile__settings-header">Профиль</h2>
-                  <form class="profile__form" method="post">
+                  <form class="profile__form" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
                      <div class="profile__label-block">
-                        <label class="profile__form-name" for="fio">Имя пользователя</label>
-                        <!-- <input class="profile__form-label" type="text" id="fio"> -->
-                        {{ user_update_form }}
+                        <label class="profile__form-name" for="username">Имя пользователя</label>
+                        {% render_field user_update_form.username class="profile__form-label" type="text" %}
                      </div>
                      <div class="profile__label-block">
                         <label class="profile__form-name" for="email">E-mail</label>
-                        <input class="profile__form-label" type="text" id="email">
+                        {% render_field user_update_form.email class="profile__form-label" type="text" %}
                      </div>
-                     <div class="profile__label-block">
+                     <!-- <div class="profile__label-block">
                         <label class="profile__form-name" for="oldpass">Старый пароль</label>
                         <input class="profile__form-label" type="text" id="oldpass">
                      </div>
                      <div class="profile__label-block">
                         <label class="profile__form-name" for="newpass">Новый Пароль</label>
                         <input class="profile__form-label" type="text" id="newpass">
-                     </div>
+                     </div> -->
                      <div class="profile__label-block">
-                        <label class="profile__form-name" for="img">Изображение</label>
-                        <div class="profile__img-block">
-                           <img class="profile__avatar" src="{% static 'non/img/profile/profile-icon.png' %}" alt="">
-                           <input class="profile__img-btn btn" type="sumbit" value="Изменить">      
-                        </div>
+                        <label class="profile__form-name" for="img">Изображение
+                            <div class="profile__img-block">
+                               <img class="profile__avatar" height="90px" width="150px" src="{{ user.profile.image.url }}" alt="Profile image" style="object-fit: cover;">
+                               <input class="profile__img-btn btn" type="file" name="image" value="Изменить" id="image" accept="image/*" hidden>  
+                            </div>
+
+                        </label>
                      </div>
                      <div class="profile__label-block">
                         <label class="profile__form-name" for="descr">Описание</label>
-                        <input class="profile__form-label" type="text" id="descr">
+                        {% render_field profile_update_form.description class="profile__form-label" type="text" %}
+                        </label>
+                        
                      </div>
-                     <input class="profile__btn btn" type="sumbit" value="Сохранить">
+                    <button class="profile__btn btn" type="submit">Сохранить</button>
+                <!-- <input class="profile__btn btn" type="sumbit" value="Сохранить"> -->
                   </form>
                </div>
                <img class="profile__image" src="{% static 'non/img/profile/profile-img.png' %}" alt="">
@@ -88,35 +96,3 @@
    <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
 {% endblock %}
 {% endblock %}
-
-<!-- {% extends 'non/base.html' %}
-{% load crispy_forms_tags %}
-{% block body %} 
-<div class="site-wrapper">
-    {% include 'non/header.html' %}
-    <div class="content-section">
-        <div class="media">
-            <img class="rounded account-img" src="{{ user.profile.image.url }}" width="128">
-            <div class="media-body">
-                <h1 class="account-heading">{{ user.username }}</h1>
-                <p class="text-secondary">{{ user.email }}</p>
-            </div>
-        </div>
-
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-        
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Profile info</legend>
-                {{ user_update_form|crispy }}
-                {{ profile_update_form|crispy }}
-            </fieldset>
-        
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
-            </div>
-        </form>
-
-    </div>
-</div>
-{% endblock %} -->
