@@ -1,0 +1,88 @@
+{% extends 'non/base.html' %}
+{% block head %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'non/stylesheets/profile/style.css' %}">
+{% endblock%}
+
+{% block body %}
+<div class="content-wrapper">
+   <aside class="aside">
+      <!-- <div class="container notes-container"> -->
+         <div class="aside__inner">
+            <div class="aside__logo logo">
+               NotOnlyNotes
+            </div>
+            <ul class="aside__list aside__list--small">
+               <li class="aside__el aside__el--anim">
+                  <a class="aside__link" href="{% url 'notes' %}">
+                     <img class="aside__link-icon" src="{% static 'non/img/notes/notes.svg' %}" alt="">
+                     <span>Все заметки</span>
+                  </a>
+               </li>
+               <li class="aside__el aside__el--anim">
+                  <a class="aside__link" href="#">
+                     <img class="aside__link-icon" src="{% static 'non/img/notes/settings.svg' %}" alt="">
+                     <span>Настройки</span>
+                  </a>
+               </li>
+            </ul>
+               <a href="{% url 'profile' %}" class="aside__account-block">
+                  <img class="aside__avatar" src="{{ user.profile.image.url }}" alt="Avatar image" height="90">
+                  <div class="aside__account-block-content">
+                     <h3 class="aside__name"> {{ user.username }} </h3>
+                     <p class="aside__descr"> {{ user.profile.description }} </p>
+                  </div>
+               </a>
+            </a>
+         </div>
+      <!-- </div> -->
+   </aside>
+   <main class="main">
+      <section class="profile">
+         <div class="container notes-container">
+            <div class="profile__inner">
+               <div class="profile__settings">
+                  <h1 class="profile__header">Настройки</h1>
+                  <h2 class="profile__settings-header">Профиль</h2>
+                  <form class="profile__form" method="post">
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="fio">ФИО</label>
+                        <input class="profile__form-label" type="text" id="fio">
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="email">E-mail</label>
+                        <input class="profile__form-label" type="text" id="email">
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="oldpass">Старый пароль</label>
+                        <input class="profile__form-label" type="text" id="oldpass">
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="newpass">Новый Пароль</label>
+                        <input class="profile__form-label" type="text" id="newpass">
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="img">Изображение</label>
+                        <div class="profile__img-block">
+                           <img class="profile__avatar" src="{% static 'non/img/profile/profile-icon.png' %}" alt="">
+                           <input class="profile__img-btn btn" type="sumbit" value="Изменить">      
+                        </div>
+                     </div>
+                     <div class="profile__label-block">
+                        <label class="profile__form-name" for="descr">Описание</label>
+                        <input class="profile__form-label" type="text" id="descr">
+                     </div>
+                     <input class="profile__btn btn" type="sumbit" value="Сохранить">
+                  </form>
+               </div>
+               <img class="profile__image" src="{% static 'non/img/profile/profile-img.png' %}" alt="">
+            </div>
+         </div>
+      </section>
+   </main>
+</div>
+{% block afterscripts %}
+   <script src="{% static 'non/js/notes/openNotes.js'%}?version=3"></script>
+   <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
+{% endblock %}
+{% endblock %}

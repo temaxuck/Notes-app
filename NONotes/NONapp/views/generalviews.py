@@ -11,3 +11,7 @@ def home(request):
     return render(request, 'non/home.html', context)
 
 
+# def profile(request):
+#     context = {}
+
+#     return render(request, 'non/profile.html', context)

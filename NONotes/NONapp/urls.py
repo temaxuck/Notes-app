@@ -22,6 +22,7 @@ from .views import generalviews, notesviews
 
 urlpatterns = [
     path('', generalviews.home, name='home'),
+    # path('settings', generalviews.profile, name='settings'),
     # path('create/', notes.create, name='create'),
     path('notes/', notesviews.NoteListView.as_view(), name='notes'),
     path('create_note', notesviews.create_note, name='create_note'),

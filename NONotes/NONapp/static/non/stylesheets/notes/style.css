@@ -58,6 +58,7 @@
    linear-gradient(#A2C8B5 0 0) 
    right / var(--d, 0%) 100% no-repeat;
    transition: background 0.5s;
+   margin-left: 1rem;
 }
 
 .aside__el--anim:hover {
@@ -84,9 +85,10 @@
    background-color: #A2C8B5;
    border-radius: 10px;
    padding: 1rem;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: auto 1fr;
    gap: 0.5rem;
    margin: auto 40px 40px 40px;
+   align-items: center;
 }
 
 .aside__name {
@@ -136,7 +138,7 @@
    margin-right: 1rem;
 }
 
-.hero__func-el:hover {
+.hero__func-el--hover:hover {
    transform: scale(1.2);
    transition: transform 0.3s ease-in-out;
 }
@@ -214,10 +216,15 @@
 }
 
 .hero__util-list {
+   clear: both;
    display: flex;
    flex-direction: row;
    align-items: center;
    margin-bottom: var(--margin-small-bottom, 2rem);
+}
+
+.hero__util-el--close {
+   margin-right: 0.87rem;
 }
 
 .hero__util-el:not(:last-child) {
@@ -284,6 +291,38 @@
 
 .hero__util {
    display: none;
+}
+
+.hero__del-block {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.hero__del-block input {
+   border: 2px solid var(--main-color);
+   border-radius: 10px;
+   padding: 10px;
+   margin-right: 1rem;
+}
+
+.hero__del-note-btn {
+   float: right;
+}
+
+.hero__save-note {
+   background-color: var(--main-color, #000);
+   color: var(--white-color, #fff);
+   font-weight: 700;
+   padding: var(--btn-padding-tb, 1.25rem) var(--btn-padding-lr, 1rem);
+   border-radius: 10px;
+   text-transform: uppercase;
+}
+
+.hero__save-note:hover {
+   transition: background-color 0.3s ease-in-out;
+   background-color: var(--active-color);
+   color: var(--white-color);
 }
 
 @media (max-width: 512px) {
