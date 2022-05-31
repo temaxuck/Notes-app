@@ -58,6 +58,7 @@
    linear-gradient(#A2C8B5 0 0) 
    right / var(--d, 0%) 100% no-repeat;
    transition: background 0.5s;
+   margin-left: 1rem;
 }
 
 .aside__el--anim:hover {
@@ -84,9 +85,10 @@
    background-color: #A2C8B5;
    border-radius: 10px;
    padding: 1rem;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: auto 1fr;
    gap: 0.5rem;
    margin: auto 40px 40px 40px;
+   align-items: center;
 }
 
 .aside__name {
@@ -148,7 +150,7 @@
 }
 
 .hero__notes-list {
-   height: 80vh;
+   height: 70vh;
    overflow-x: scroll;
    padding: 1rem; /*Убрать попозже*/
 }
@@ -201,6 +203,8 @@
    text-align: right;
 }
 
+
+
 .hero__notes-el--test {
    position: absolute;
    display: block;
@@ -212,10 +216,15 @@
 }
 
 .hero__util-list {
+   clear: both;
    display: flex;
    flex-direction: row;
    align-items: center;
    margin-bottom: var(--margin-small-bottom, 2rem);
+}
+
+.hero__util-el--close {
+   margin-right: 0.87rem;
 }
 
 .hero__util-el:not(:last-child) {
@@ -247,7 +256,6 @@
 
 .hero__util-el--close {
    margin-left: auto;
-   margin-right: 0.5rem;
 }
 
 .hero__util-select {
@@ -283,30 +291,38 @@
 
 .hero__util {
    display: none;
-   clear: both;
 }
 
-.hero__delete-block {
-   display: block;
-   float: right;
+.hero__del-block {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
 }
 
-.hero__delete-btn img {
-   width: 2.5rem;
-   height: 2.5rem;
-}
-
-.hero__search-label {
-   border: 2px solid var(--active-color);
+.hero__del-block input {
+   border: 2px solid var(--main-color);
    border-radius: 10px;
    padding: 10px;
    margin-right: 1rem;
 }
 
-.hero__search-block {
-   display: flex;
-   align-items: center;
-   flex-direction: row;
+.hero__del-note-btn {
+   float: right;
+}
+
+.hero__save-note {
+   background-color: var(--main-color, #000);
+   color: var(--white-color, #fff);
+   font-weight: 700;
+   padding: var(--btn-padding-tb, 1.25rem) var(--btn-padding-lr, 1rem);
+   border-radius: 10px;
+   text-transform: uppercase;
+}
+
+.hero__save-note:hover {
+   transition: background-color 0.3s ease-in-out;
+   background-color: var(--active-color);
+   color: var(--white-color);
 }
 
 @media (max-width: 512px) {

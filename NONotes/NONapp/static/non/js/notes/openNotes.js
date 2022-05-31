@@ -43,7 +43,7 @@ closeNotes.forEach((item) => item.addEventListener('click', (e) => {
 
 main.addEventListener('click', (e) => {
 	console.log(document.querySelector('.hero'));
-	if (e.target == main || e.target == document.querySelector('.container')) 
+	if (e.target == main || e.target == document.querySelector('.hero')) 
 		document.querySelectorAll('.hero__notes-el--test').forEach(item => {
 			closeNote(item);
 		});

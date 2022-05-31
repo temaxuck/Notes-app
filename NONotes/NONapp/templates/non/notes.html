@@ -1,6 +1,7 @@
 {% extends 'non/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
 {% block head %}
-   {% load static %}
    <link rel="stylesheet" href="{% static 'non/stylesheets/notes/style.css' %}">
 {% endblock%}
 
@@ -20,32 +21,14 @@
                   </a>
                </li>
                <li class="aside__el aside__el--anim">
-                  <a class="aside__link" href="#">
-                     <img class="aside__link-icon" src="{% static 'non/img/notes/folders.svg' %}" alt="">
-                     <span>Папки</span>
-                  </a>
-               </li>
-               <li class="aside__el aside__el--anim">
-                  <a class="aside__link" href="#">
-                     <img class="aside__link-icon" src="{% static 'non/img/notes/main.svg' %}" alt="">
-                     <span>Главная</span>
-                  </a>
-               </li>
-               <li class="aside__el aside__el--anim">
-                  <a class="aside__link" href="#">
+                  <a class="aside__link" href="{% url 'settings' %}">
                      <img class="aside__link-icon" src="{% static 'non/img/notes/settings.svg' %}" alt="">
                      <span>Настройки</span>
                   </a>
                </li>
-               <li class="aside__el aside__el--anim">
-                  <a class="aside__link" href="#">
-                     <img class="aside__link-icon" src="{% static 'non/img/notes/shop.svg' %}" alt="">
-                     <span>Магазин</span>
-                  </a>
-               </li>
             </ul>
                <a href="{% url 'profile' %}" class="aside__account-block">
-                  <img class="aside__avatar" src="{{ user.profile.image.url }}" alt="Avatar image">
+                  <img class="aside__avatar" src="{{ user.profile.image.url }}" alt="Avatar image" height="90">
                   <div class="aside__account-block-content">
                      <h3 class="aside__name"> {{ user.username }} </h3>
                      <p class="aside__descr"> {{ user.profile.description }} </p>
@@ -67,8 +50,8 @@
                      </div>
                      <ul class="hero__func-list">
                         <li class="hero__func-el">
-                           <form class="hero__search-block" action="{% url 'search_notes' %}" method="get">
-                              <input class="hero__search-label" name="q" type="text" placeholder="Search...">
+                           <form class="hero__del-block" action="{% url 'search_notes' %}" method="get">
+                              <input name="q" type="text" placeholder="Search...">
                               <button class="hero__btn btn"><img class="hero__btn-img" src="{% static 'non/img/notes/search.svg' %}" alt=""></button>
                            </form>
                         </li>
@@ -93,10 +76,10 @@
                   <ul class="hero__notes-list">
                      {% for note in notes %}
                      <li class="hero__notes-el">
-                        <div class="hero__delete-block">
+                        <div style="display: block">
                            <form action="{% url 'delete_note' note.id %}" method="post">
                               {% csrf_token %}
-                              <button class="hero__delete-btn hero__util-el--hover btn" type="submit">
+                              <button class="hero__del-note-btn hero__util-el--hover btn" type="submit">
                                  <img src="{% static 'non/img/notes/trash.svg' %}" alt="">
                               </button>
                            </form>
@@ -183,11 +166,12 @@
                               </li>
                            </ul>
                         </div>
-						<form class="hero__notes-content">
+						<form method="post">
 							{% csrf_token %}
-							<input class="hero__notes-header" value="{{ note.title }}" readonly/> 
-							<textarea class="hero__notes-descr" readonly> {{ note.content }}</textarea>
-						</form>
+							<input name="title" class="hero__notes-header" value="{{ note.title }}" readonly/> 
+							<textarea name="content" class="hero__notes-descr textarea" onkeyup="textAreaAdjust(this)" style="overflow:hidden" readonly>{{ note.content }}</textarea>
+							<button class="hero__save-note btn" name="update_note" type="submit" value="{{ note.id }}">Сохранить</button>
+						</form> 
                         <span class="hero__notes-date">{{ note.timestampLastModified }}</span>
 					</li>
 					{% endfor %}
@@ -201,5 +185,8 @@
 {% block afterscripts %}
    <script src="{% static 'non/js/notes/openNotes.js'%}?version=3"></script>
    <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
+   <script src="{% static 'non/js/notes/textareaHeight.js'%}"></script>
 {% endblock %}
 {% endblock %}
+
+<!-- класс hero__notes-el--test открывает заметку -->
