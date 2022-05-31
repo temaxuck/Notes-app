@@ -98,9 +98,6 @@
    border-color: var(--main-color, green);
 }
 
-/* .register__form-input:hover:invalid {
-   border: 2px solid var(--attention-color, red);
-} */
 
 @media (max-width: 512px) {
    .full-height {

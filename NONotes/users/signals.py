@@ -12,7 +12,6 @@ def create_profile(sender, instance, created, **kwargs):
         
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
-    # remove all previous profile pics before saving
     path = os.path.join(settings.MEDIA_ROOT, get_upload_path(instance.profile, ''))
     if os.path.exists(path):
         for root, dirs, files in os.walk(path):

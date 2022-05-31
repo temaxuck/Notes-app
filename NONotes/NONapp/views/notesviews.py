@@ -12,13 +12,11 @@ class NoteListView(LoginRequiredMixin, TemplateView):
     redirect_field_name = '/user/login/?next=/'   
     
     def post(self, request):
-        # print(request.POST)
         note = Note.objects.filter(id=request.POST.get('update_note')).first()
 
         if note in request.user.note_set.all():
             note.update(request.POST.get('title'), request.POST.get('content'))
 
-        # print(reverse('notes'))
         return redirect(reverse('notes'))
 
         
@@ -86,11 +84,3 @@ class NoteSearchView(LoginRequiredMixin, TemplateView):
 		})
         
         return context
-
-# def update_note(request, note_id):
-# 	form = NoteForm
-# 	if request.method == 'POST':
-# 		...
-#  	# note = Note.objects.filter(id=note_id).first()
-# 	# if form.
-# 	return redirect('notes')

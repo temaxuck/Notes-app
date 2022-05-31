@@ -8,11 +8,8 @@
 {% block body %}
 <div class="content-wrapper">
    <aside class="aside">
-      <!-- <div class="container notes-container"> -->
          <div class="aside__inner">
-            <div class="aside__logo logo">
-               NotOnlyNotes
-            </div>
+            <div class="aside__logo logo">NotOnlyNotes</div>
             <ul class="aside__list aside__list--small">
                <li class="aside__el aside__el--anim">
                   <a class="aside__link" href="{% url 'notes' %}">
@@ -36,7 +33,6 @@
                </a>
             </a>
          </div>
-      <!-- </div> -->
    </aside>
    <main class="main">
       <section class="profile">
@@ -48,7 +44,6 @@
                   <form class="profile__form" method="post">
                      <div class="profile__label-block">
                         <label class="profile__form-name" for="fio">Имя пользователя</label>
-                        <!-- <input class="profile__form-label" type="text" id="fio"> -->
                         {{ user_update_form }}
                      </div>
                      <div class="profile__label-block">
@@ -88,35 +83,3 @@
    <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
 {% endblock %}
 {% endblock %}
-
-<!-- {% extends 'non/base.html' %}
-{% load crispy_forms_tags %}
-{% block body %} 
-<div class="site-wrapper">
-    {% include 'non/header.html' %}
-    <div class="content-section">
-        <div class="media">
-            <img class="rounded account-img" src="{{ user.profile.image.url }}" width="128">
-            <div class="media-body">
-                <h1 class="account-heading">{{ user.username }}</h1>
-                <p class="text-secondary">{{ user.email }}</p>
-            </div>
-        </div>
-
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-        
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Profile info</legend>
-                {{ user_update_form|crispy }}
-                {{ profile_update_form|crispy }}
-            </fieldset>
-        
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
-            </div>
-        </form>
-
-    </div>
-</div>
-{% endblock %} -->

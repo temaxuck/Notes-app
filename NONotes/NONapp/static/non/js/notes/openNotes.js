@@ -48,24 +48,6 @@ let openNotes = document.querySelectorAll(".hero__notes-el");
 let closeNotes = document.querySelectorAll('.hero__util-el--close');
 let main = document.querySelector('.main');
 
-// openNotes.forEach((item) => item.addEventListener('click', (e) => {
-// 	if (item.classList.contains('hero__notes-el--test'))
-// 		return
-// 	item.classList.add("hero__notes-el--test");
-	
-// 	let bar = item.querySelector(".hero__util");
-// 	(bar.style.display === "block") ? bar.style.display = 'none' : bar.style.display = 'block';
-	
-// 	let date = item.querySelector('.hero__notes-date');
-// 	(date.style.display === "none") ? date.style.display = 'block' : date.style.display = 'none';
-
-// 	let textareaHeader = item.querySelector('.hero__notes-header');
-// 	textareaHeader.readOnly = false;
-	
-// 	let textareaDescr = item.querySelector('.hero__notes-descr');
-// 	textareaDescr.readOnly = false;
-// }));
-
 closeNotes.forEach((item) => item.addEventListener('click', (e) => {
 	e.stopPropagation();
 	closeNote(item.parentNode.parentNode.parentNode);
