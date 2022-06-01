@@ -3,7 +3,7 @@
 {% load widget_tweaks %}
 {% block head %}
    {% load static %}
-   <link rel="stylesheet" href="{% static 'non/stylesheets/profile/style.css' %}">
+    <link rel="stylesheet" href="{% static 'non/stylesheets/profile/style.css' %}">
 {% endblock%}
 
 {% block body %}
@@ -56,19 +56,19 @@
                         <label class="profile__form-name" for="email">E-mail</label>
                         {% render_field user_update_form.email class="profile__form-label" type="text" %}
                      </div>
-                     <!-- <div class="profile__label-block">
-                        <label class="profile__form-name" for="oldpass">Старый пароль</label>
-                        <input class="profile__form-label" type="text" id="oldpass">
-                     </div>
-                     <div class="profile__label-block">
-                        <label class="profile__form-name" for="newpass">Новый Пароль</label>
-                        <input class="profile__form-label" type="text" id="newpass">
-                     </div> -->
                      <div class="profile__label-block">
                         <label class="profile__form-name" for="img">Изображение
                             <div class="profile__img-block">
                                <img class="profile__avatar" height="90px" width="150px" src="{{ user.profile.image.url }}" alt="Profile image" style="object-fit: cover;">
-                               <input class="profile__img-btn btn" type="file" name="image" value="Изменить" id="image" accept="image/*" hidden>  
+                                <label for="image" class="profile__img-btn btn" id="select_image_btn">Загрузить файл</label>
+                               <input class="profile__img-btn btn"
+                                type="file"
+                                name="image"
+                                value="Изменить"
+                                id="image"
+                                accept="image/*"
+                                style="display: none;"
+                                onchange='getImg(event)'>  
                             </div>
 
                         </label>
@@ -80,7 +80,6 @@
                         
                      </div>
                     <button class="profile__btn btn" type="submit">Сохранить</button>
-                <!-- <input class="profile__btn btn" type="sumbit" value="Сохранить"> -->
                   </form>
                </div>
                <img class="profile__image" src="{% static 'non/img/profile/profile-img.png' %}" alt="">
@@ -91,7 +90,7 @@
    </main>
 </div>
 {% block afterscripts %}
-   <script src="{% static 'non/js/notes/openNotes.js'%}?version=3"></script>
-   <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
+    <script src="{% static 'users/js/imgUpload.js' %}"></script>
+    <script src="{% static 'non/js/notes/changeAside.js'%}"></script>
 {% endblock %}
 {% endblock %}
